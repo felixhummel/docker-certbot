@@ -1,9 +1,5 @@
 #!/bin/bash
 set -euo pipefail
 
-domain=$1
-email=${2:postmaster@$1}
-
 docker-compose run certbot \
-  certbot \
-  renew
+  certbot renew
