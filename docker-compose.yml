@@ -1,0 +1,8 @@
+version: '2'
+services:
+  certbot:
+    image: felix/certbot
+    build: .
+    volumes:
+      - /var/www/letsencrypt:/mnt
+      - /etc/letsencrypt:/etc/letsencrypt

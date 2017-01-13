@@ -1,0 +1,5 @@
+# Usage
+
+```
+./issue example.org
+```

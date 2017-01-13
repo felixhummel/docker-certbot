@@ -1,0 +1,12 @@
+#!/bin/bash
+set -euo pipefail
+
+domain=$1
+email=${2:postmaster@$1}
+
+docker-compose run certbot \
+  certbot \
+  certonly \
+  --agree-tos \
+  --webroot -w /mnt/ -d $domain \
+  --email $email
