@@ -2,9 +2,8 @@
 set -euo pipefail
 
 docker run --rm \
-  --name example-nginx \
-  -p 80:80 \
-  -p 443:443 \
+  --name nginx-certbot \
+  --net=host \
   -v /etc/letsencrypt:/etc/letsencrypt \
   -v /var/www/letsencrypt:/var/www/letsencrypt \
   -v ${PWD}/etc/nginx/conf.d:/etc/nginx/conf.d \
