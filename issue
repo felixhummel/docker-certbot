@@ -6,7 +6,6 @@ zone2=$(echo ${fqdn} | sed -e 's/.*\.\(.*\..*\)/\1/')
 email=${2:-postmaster@$zone2}
 
 docker-compose run certbot \
-  certbot \
   certonly \
   --text \
   --standalone-supported-challenges http-01 \
