@@ -5,13 +5,15 @@ fqdn=$1
 zone2=$(echo ${fqdn} | sed -e 's/.*\.\(.*\..*\)/\1/')
 email=${2:-postmaster@$zone2}
 
-docker-compose run certbot \
+docker run --rm \
+  -v /etc/letsencrypt:/etc/letsencrypt \
+  -v /var/www/letsencrypt:/var/www/letsencrypt \
+  certbot/certbot \
   certonly \
-  --text \
-  --standalone-supported-challenges http-01 \
+  --preferred-challenges http-01 \
   --agree-tos \
-  --webroot -w /mnt/ -d $fqdn \
+  --webroot -w /var/www/letsencrypt \
+  -d $fqdn \
   --rsa-key-size 4096 \
-  --must-staple \
   --hsts \
   --email $email

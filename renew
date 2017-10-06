@@ -1,5 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
-docker-compose run --rm certbot \
+docker run --rm \
+  -v /etc/letsencrypt:/etc/letsencrypt \
+  -v /var/www/letsencrypt:/var/www/letsencrypt \
+  certbot/certbot \
   renew $@

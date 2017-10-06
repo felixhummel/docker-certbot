@@ -1,0 +1,12 @@
+#!/bin/bash
+set -euo pipefail
+
+docker run --rm \
+  --name example-nginx \
+  -p 80:80 \
+  -p 443:443 \
+  -v /etc/letsencrypt:/etc/letsencrypt \
+  -v /var/www/letsencrypt:/var/www/letsencrypt \
+  -v ${PWD}/etc/nginx/conf.d:/etc/nginx/conf.d \
+  -v ${PWD}/etc/nginx/letsencrypt_well_known.conf:/etc/nginx/letsencrypt_well_known.conf \
+  nginx

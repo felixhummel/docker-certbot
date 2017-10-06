@@ -1,7 +1,0 @@
-version: '2'
-services:
-  certbot:
-    image: certbot/certbot
-    volumes:
-      - /var/www/letsencrypt:/mnt
-      - /etc/letsencrypt:/etc/letsencrypt
