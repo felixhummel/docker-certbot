@@ -77,5 +77,5 @@ cp renew /usr/local/sbin/
 
 Then add a cron job that renews certs and reloads nginx, e.g.:
 ```
-23 30 * * * /usr/local/sbin/renew 2>&1 | logger -t certbot && docker kill -s HUP nginx-terminator
+30 23 * * * /usr/local/sbin/renew 2>&1 | logger -t certbot && docker kill -s HUP nginx-terminator
 ```
