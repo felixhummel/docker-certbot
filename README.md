@@ -56,6 +56,10 @@ python3 -mhttp.server --bind 127.0.0.1 8080
 
 The "nginx with SSL termination":
 ```
+[[ -f /etc/ssl/dhparam.pem ]] \
+  || openssl dhparam -out /etc/ssl/dhparam.pem 2048 \
+  && chmod 644 /etc/ssl/dhparam.pem
+
 docker run --rm \
   --name nginx-terminator \
   --net=host \
