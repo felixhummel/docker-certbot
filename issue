@@ -10,6 +10,7 @@ docker run --rm \
   -v /var/www/letsencrypt:/var/www/letsencrypt \
   certbot/certbot \
   certonly \
+  --non-interactive \
   --preferred-challenges http-01 \
   --agree-tos \
   --webroot -w /var/www/letsencrypt \
