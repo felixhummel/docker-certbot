@@ -7,6 +7,7 @@ docker run \
   --detach \
   --restart=unless-stopped \
   -v /etc/letsencrypt:/etc/letsencrypt \
+  -v /var/log/letsencrypt:/var/log/letsencrypt \
   -v /var/www/letsencrypt:/var/www/letsencrypt \
   -v ${PWD}/etc/nginx/conf.d:/etc/nginx/conf.d \
   -v ${PWD}/etc/nginx/letsencrypt_well_known.conf:/etc/nginx/letsencrypt_well_known.conf \
